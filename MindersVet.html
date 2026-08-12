@@ -4,8 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
-<title>MindersVet</title>
+<title>MindersVet - Ecommerce</title>
 <link rel="icon" type="image/png" href="assets/img/mindersvet-logo.png">
+<script src="https://cdn.amplitude.com/script/a1f05bb4175a983fae715b80c85bc5ad.js"></script>
+<script>
+  window.amplitude.init("a1f05bb4175a983fae715b80c85bc5ad", {
+    defaultTracking: true,
+    autocapture: true,
+    fetchRemoteConfig: true,
+  });
+  // Enable Session Replay with custom sample rate
+  window.amplitude.add(window.sessionReplay.plugin({ sampleRate: 1 }));
+</script>
 </head>
 <body>
 <x-dc>
