@@ -648,7 +648,7 @@ import { ampli } from './ampli';
   function dispatch(action, ds, ev){
     var s = state;
     switch(action){
-      case 'go': s.screen = ds.arg; break;
+      case 'go': s.screen = ds.arg; if (ds.arg == 'checkout') {ampli.checkoutViewed()}; break;
       case 'logout':
         ampli.userLoggedOut();
         s.screen='login'; s.authIsLogin=true; s.accountStatus='none';
@@ -716,9 +716,9 @@ import { ampli } from './ampli';
         s.viewCounts[ds.arg] = (s.viewCounts[ds.arg]||0)+1;
         ampli.productViewed({
           product_name: p.name,
-          distribuitor_id: s.form.distribuidorId,
+          distributor_id: s.form.distribuidorId,
           price:p.price,
-          distribuitor_name: s.form.distribuidorNombre,
+          distributor_name: s.form.distribuidorNombre,
           product_id: p.id
         });
         break;
@@ -732,9 +732,9 @@ import { ampli } from './ampli';
         ampli.productAddedToCart(
           {
           product_name: p.name,
-          distribuitor_id: s.form.distribuidorId,
+          distributor_id: s.form.distribuidorId,
           price: p.price,
-          distribuitor_name: s.form.distribuidorNombre,
+          distributor_name: s.form.distribuidorNombre,
           product_id: p.id
           }
         );
